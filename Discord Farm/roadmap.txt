@@ -1,0 +1,21 @@
+TODO LIST:
+-Create a shop page
+    -Need to unlock based on level
+    -Buy different seeds
+    -Buy land? 
+
+-Create farming function
+    -Create different plant objects
+        -Time to grow
+        -Value
+
+-Create / commands
+    -/shop -- NEED WORK
+        -displays shop
+    -/farm -- NEED WORK
+        -displays number of land tiles 
+            -total, avaliable, occupied
+        -what is growing on farm
+    -/player -- NEED WORK
+        -options --> playerID - default, authorId
+        -display player level and name

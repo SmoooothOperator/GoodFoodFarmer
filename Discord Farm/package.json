@@ -1,0 +1,16 @@
+{
+  "name": "discord-farm",
+  "version": "1.0.0",
+  "description": "For Good Food Farmers",
+  "main": "source/farm.js",
+  "scripts": {
+    "test": "\u001a\u001b[A\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[\u001b[C\u001b[\u001bma\u001b[B\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D "
+  },
+  "author": "Caden",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.11.0",
+    "dotenv": "^16.3.1",
+    "mongoose": "^7.4.4"
+  }
+}

@@ -1,0 +1,17 @@
+Level 0: Lettuce
+Level 1: Potato, Beans
+Level 2: Wheat, Carrot, Sunflower, 
+Level 3: Banana, Apple, Orange, Watermelon
+Level 4: Strawberry, Pineapple, Grapes, Onion
+Level 5: Eggplant, Mushroom, Tomato, Lemon
+Level 6: Coconut, Avacado, Cucumber, Corn
+Level 7: Brocoli, Bell Pepper, Chili, Kiwi Fruit
+Level 8: Blue Berry, Cherry
+TBC...
+
+
+
+
+
+Balancing system: how much you can make for one farm tile in 60 seconds
+Call it BS value: Formula (Cost * oneTile * Yield) - Cost * oneTile / 60

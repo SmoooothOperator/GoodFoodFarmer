@@ -1,0 +1,15 @@
+const path = require("path");
+const getAllFiles = require("./getAllFiles");
+
+module.exports = (exceptions = []) => {
+  let farmableObjects = [];
+
+  const objects = getAllFiles(path.join(__dirname, "..", "objects"), false);
+  for (const object of objects) {
+    const farmableObject = require(object);
+
+    farmableObjects.push(farmableObject);
+  }
+
+  return farmableObjects;
+};
