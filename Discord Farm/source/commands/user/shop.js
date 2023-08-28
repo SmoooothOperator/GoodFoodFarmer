@@ -34,15 +34,15 @@ module.exports = {
         itemInfo = require(`../../objects/${unlock}`);
         embed.addFields({
           name: `${itemInfo.icon}${capitalizeFirstLetter(unlock)}`,
-          value: `Cost: 🪙${itemInfo.value}x\nYield: 🟰${itemInfo.yield}`,
+          value: `Cost: 🪙${itemInfo.value}x\nYield: ${itemInfo.yield}`,
           inline: true,
         });
       }
-      embed.addFields({
-        name: `🟫Land`,
-        value: `Cost: 🪙x1000`,
-        inline: true,
-      });
+      // embed.addFields({
+      //   name: `🟫Land`,
+      //   value: `Cost: 🪙x1000`,
+      //   inline: true,
+      // });
 
       interaction.reply({ embeds: [embed] });
     } catch (error) {
