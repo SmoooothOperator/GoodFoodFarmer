@@ -1,0 +1,15 @@
+const path = require("path");
+const getAllFiles = require("./getAllFiles");
+
+module.exports = (exceptions = []) => {
+  let getUpgrades = [];
+
+  const objects = getAllFiles(path.join(__dirname, "..", "upgrades"), false);
+  for (const object of objects) {
+    const upgrades = require(object);
+
+    getUpgrades.push(upgrades);
+  }
+
+  return getUpgrades;
+};

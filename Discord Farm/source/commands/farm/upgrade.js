@@ -36,7 +36,7 @@ module.exports = {
         guildId: interaction.guild.id,
       };
 
-      itemInfo = require(`../../objects/${newItem.itemName}`);
+      itemInfo = require(`../../upgrades/${newItem.itemName}`);
 
       console.log(`${newItem.itemName}`);
 

@@ -1,6 +1,8 @@
 const { EmbedBuilder } = require("discord.js");
-const getAllLevelUnlocks = require("../../data_models/allObjectsUnlocked");
 const capitalizeFirstLetter = require("../../utils/capitalizeFirstLetter");
+const getAllUpgrades = require("../../data_models/allUpgrades");
+const values = require("../../data_models/values");
+
 module.exports = {
   /**
    *
@@ -8,8 +10,8 @@ module.exports = {
    * @param {*} interaction
    */
 
-  name: "shop",
-  description: "Gives you catalog of the farm shop",
+  name: "upgradables",
+  description: "Gives you catalog of the avaliable upgrades",
   //devOnly: Boolean,
   //testOnly; Boolean,
   //options:
@@ -21,35 +23,24 @@ module.exports = {
         guildId: interaction.guild.id,
       };
 
-      const embed = new EmbedBuilder()
-        .setTitle("Good Food Farmer Shop🧺")
+      const val = await values.findOne(query);
 
-        .setDescription("Happy shopping!")
+      const embed = new EmbedBuilder()
+        .setTitle("Farm Upgrades ⬆️")
+
+        .setDescription("Have money must upgrade, no money go away.")
         .setColor("Random");
 
-      const allUnlocks = await getAllLevelUnlocks(query);
+      const allUnlocks = await getAllUpgrades(query);
       console.log(allUnlocks);
       for (const unlock of allUnlocks) {
         //get crop info
-        itemInfo = require(`../../objects/${unlock}`);
-
-        let hour = Math.round(itemInfo.time / 3600);
-
-        let min;
-        if (itemInfo.time < 60) {
-        } else {
-          min = Math.round((itemInfo.time % 3600) / 60);
-        }
-
-        let sec = (itemInfo.time % 3600) % 60;
-
+        itemInfo = require(`../../upgrades/${unlock}`);
         embed.addFields({
           name: `${itemInfo.icon}${capitalizeFirstLetter(unlock)}`,
-          value: `Cost: 🪙${itemInfo.value}x\nYield: ${
-            itemInfo.yield
-          }\nTime: **${hour !== 0 ? `${hour}h` : ""} ${
-            min !== 0 ? `${min}m` : ""
-          } ${sec !== 0 ? `${sec}s` : ""}`,
+          value: `Cost: 🪙${Math.round(
+            itemInfo.value * Math.exp((1 / 8) * val.level)
+          )}x`,
           inline: true,
         });
       }

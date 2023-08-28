@@ -76,9 +76,21 @@ module.exports = {
           growthState = "🌱Growing";
         }
 
+        let hour = Math.round(planted.timeLeft / 3600);
+
+        let min;
+        if (planted.timeLefte < 60) {
+        } else {
+          min = Math.round((planted.timeLeft % 3600) / 60);
+        }
+
+        let sec = (planted.timeLeft % 3600) % 60;
+
         embed.addFields({
           name: `${itemInfo.icon} ${planted.cropName} x${planted.cropNumber} `,
-          value: `Status: ${growthState} \nTime left: ⏱️${planted.timeLeft}s`,
+          value: `Status: ${growthState} \nTime left: **${
+            hour !== 0 ? `${hour}h` : ""
+          } ${min !== 0 ? `${min}m` : ""} ${sec !== 0 ? `${sec}s` : ""}**`,
           inline: true,
         });
       }

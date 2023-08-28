@@ -1,0 +1,26 @@
+const getUpgrades = require("../utils/getUpgrades");
+const values = require("./values");
+const { Client, interaction } = require("discord.js");
+
+const getAllUpgrades = async (query) => {
+  let allUpgrades = [];
+  try {
+    const val = await values.findOne(query);
+
+    const upgrades = await getUpgrades();
+
+    for (const upgrade of upgrades) {
+      const object = upgrade;
+      if (object.level <= val.level) {
+        allUpgrades.push(`${object.name}`);
+      }
+    }
+  } catch (error) {
+    console.log(`There was an error: ${error}`);
+  }
+  return allUpgrades;
+};
+
+module.exports = getAllUpgrades;
+
+//takes in level of user, spews out new things unlocked
