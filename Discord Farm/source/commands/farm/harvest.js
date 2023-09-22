@@ -59,6 +59,12 @@ module.exports = {
           return;
         }
 
+        //Embed for harvested crops reply
+        const Harvest_embed = new EmbedBuilder()
+          .setTitle(`⛏️Harvesting..`)
+          .setDescription(`Sucessfully harvested:`)
+          .setColor("Random");
+
         //Harvest each planted that is ready for harvest
         if (harvestIndices.length > 0) {
           for (let i = harvestIndices.length - 1; i >= 0; i--) {
@@ -91,16 +97,19 @@ module.exports = {
             val.planted.splice(index, 1);
             //give xp to player
             val.xp += exp;
+            //add harvested item to embed
+            Harvest_embed.addFields({
+              name: `${itemInfo.icon}${crop}`,
+              value: `x${cropNum}`,
+              inline: true,
+            });
 
-            console.log("Right here");
             await val.save();
           }
-          await interaction.deferReply({ ephemeral: true });
+          await interaction.deferReply({ ephemeral: false });
 
           //**Need to add an embed later to list out everything added to inventory**
-          await interaction.editReply(
-            "Successfully harvested everything! {insert embed builder here}"
-          );
+          await interaction.editReply({ embeds: [Harvest_embed] });
 
           //give level up to user if applicable and reset xp
           if (val.xp > calculateLevelXp(val.level)) {
@@ -109,10 +118,7 @@ module.exports = {
             levelUp = true;
             await val.save();
 
-            console.log("Right here");
-
             const newUnlocks = await getNewLevelUnlocks(query);
-            console.log("Right here");
 
             console.log(newUnlocks);
             const embed = new EmbedBuilder()
@@ -128,7 +134,7 @@ module.exports = {
                 inline: true,
               });
             }
-
+            console.log(`Here`);
             await interaction.followUp({ embeds: [embed] });
           }
         }

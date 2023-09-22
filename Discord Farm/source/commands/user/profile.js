@@ -65,7 +65,7 @@ module.exports = {
         })
         .addFields({
           name: `🟫Land`,
-          value: `${land_avaliable}/${land_total} Avaliable`,
+          value: `${land_avaliable}/${land_total} Available`,
           inline: true,
         });
       interaction.reply({ embeds: [embed] });
