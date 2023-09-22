@@ -45,11 +45,9 @@ module.exports = {
 
         embed.addFields({
           name: `${itemInfo.icon}${capitalizeFirstLetter(unlock)}`,
-          value: `Cost: 🪙${itemInfo.value}x\nYield: ${
-            itemInfo.yield
-          }\nTime: **${hour !== 0 ? `${hour}h` : ""} ${
-            min !== 0 ? `${min}m` : ""
-          } ${sec !== 0 ? `${sec}s` : ""}`,
+          value: `Cost: 🪙${itemInfo.value}x\nYield: ${itemInfo.yield}\nTime: ${
+            hour !== 0 ? `${hour}h` : ""
+          } ${min !== 0 ? `${min}m` : ""} ${sec !== 0 ? `${sec}s` : ""}`,
           inline: true,
         });
       }

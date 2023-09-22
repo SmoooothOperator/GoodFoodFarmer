@@ -79,7 +79,8 @@ module.exports = {
         let hour = Math.round(planted.timeLeft / 3600);
 
         let min;
-        if (planted.timeLefte < 60) {
+        if (planted.timeLeft < 60) {
+          min = 0;
         } else {
           min = Math.round((planted.timeLeft % 3600) / 60);
         }

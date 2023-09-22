@@ -19,3 +19,8 @@ TODO LIST:
     -/player -- NEED WORK
         -options --> playerID - default, authorId
         -display player level and name
+
+- Crop spoil
+- Animals
+- Lottery
+- Fertilizer

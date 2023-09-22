@@ -67,7 +67,7 @@ module.exports = {
         await val.save();
 
         interaction.reply(
-          `Sucessfully upgraded **${newItem.itemName}**${itemInfo.icon}`
+          `Successfully upgraded **${newItem.itemName}**${itemInfo.icon}`
         );
 
         //FOR FUTURE DEVELOPMENT: check what level the upgrade is

@@ -99,7 +99,7 @@ module.exports = {
 
           //**Need to add an embed later to list out everything added to inventory**
           await interaction.editReply(
-            "Sucessfully harvested everything! {insert embed builder here}"
+            "Successfully harvested everything! {insert embed builder here}"
           );
 
           //give level up to user if applicable and reset xp
@@ -116,7 +116,7 @@ module.exports = {
 
             console.log(newUnlocks);
             const embed = new EmbedBuilder()
-              .setTitle(`You have leveled up to **level ${val.level}**!`)
+              .setTitle(`You have leveled up to 🔰**level ${val.level}**!`)
               .setDescription(`New items unlocked!`)
               .setColor("Random");
 

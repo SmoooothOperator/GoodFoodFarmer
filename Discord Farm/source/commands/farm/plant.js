@@ -98,7 +98,7 @@ module.exports = {
           const plantIndex = val.planted.length - 1;
 
           interaction.reply(
-            `Sucessfully planted **${plantItem.itemValue}x ${plantItem.itemName}**${itemInfo.icon}`
+            `Successfully planted **${plantItem.itemValue}x ${plantItem.itemName}**${itemInfo.icon}`
           );
 
           //Time left for this plant action

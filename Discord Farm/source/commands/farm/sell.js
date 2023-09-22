@@ -94,7 +94,7 @@ module.exports = {
         await newVal.save();
       }
       interaction.reply(
-        `Sucessfully sold **${newItem.itemValue} ${newItem.itemName}**${itemInfo.icon}`
+        `Successfully sold **${newItem.itemValue} ${newItem.itemName}**${itemInfo.icon}`
       );
     } catch (error) {
       console.log(`There was an error: ${error}`);
